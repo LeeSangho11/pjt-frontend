@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Board from "./pages/Board/Board";
+import Detail from "./pages/Board/Detail";
+
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  { path: "board", element: <Board /> },
+  { path: "board/write", element: <Detail /> },
+  { path: "board/:boardId", element: <Detail /> },
+]);
 
 function App() {
-  const [message, setMessage] = useState([]);
-
-  useEffect(() => {
-    fetch("/hello")
-      .then((res) => res.json())
-      .then((data) => setMessage(data));
-  }, []);
-  return (
-    <>
-      {" "}
-      {message.map((v, idx) => (
-        <li key={`${idx}-${v}`}>{v}</li>
-      ))}
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
