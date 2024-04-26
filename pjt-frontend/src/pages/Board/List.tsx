@@ -10,7 +10,7 @@ type IData = {
   modifiedDate: String;
 };
 
-export default function Board() {
+export default function List() {
   const [datas, setDatas] = useState<IData[]>();
 
   useEffect(() => {
