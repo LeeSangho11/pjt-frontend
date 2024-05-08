@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import BoardForm from "./components/BoardForm";
+import BoardForm from "../Board/components/BoardForm";
 
 type IreqData = {
   [key: string]: string;
